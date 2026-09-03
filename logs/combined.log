@@ -1,0 +1,43 @@
+{"level":"info","message":"Received a request to the root endpoint","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [03/Sep/2026:13:31:55 +0000] \"GET / HTTP/1.1\" 200 13 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.135.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [03/Sep/2026:13:31:55 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.135.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36\"","service":"acquisitions-api"}
+{"level":"info","message":"Hello from Acquisitions!","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [03/Sep/2026:13:55:09 +0000] \"GET / HTTP/1.1\" 200 24 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.135.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [03/Sep/2026:13:55:15 +0000] \"GET /health HTTP/1.1\" 200 74 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.135.0 Chrome/148.0.7778.280 Electron/42.8.1 Safari/537.36\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [03/Sep/2026:18:03:51 +0000] \"POST / HTTP/1.1\" 404 27 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:18:04:09 +0000] \"POST / HTTP/1.1\" 404 27 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"Hello from Acquisitions!","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:18:04:12 +0000] \"GET / HTTP/1.1\" 200 24 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"Hello from Acquisitions!","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [03/Sep/2026:18:04:20 +0000] \"GET / HTTP/1.1\" 200 24 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:18:04:30 +0000] \"POST / HTTP/1.1\" 404 27 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:18:04:42 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 200 13 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:18:06:59 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 92 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:18:14:02 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 92 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:18:14:14 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 92 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:18:14:47 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 92 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:18:16:28 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 92 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:19:22:40 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 92 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:19:23:52 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 91 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"User a@gmail.com created successfully","service":"acquisitions-api"}
+{"level":"info","message":"User registered successfully: a@gmail.com","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:19:24:03 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 95 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"error","message":"Error creating the user: Error: User with this email already exists","service":"acquisitions-api"}
+{"level":"error","message":"Signup error User with this email already exists","service":"acquisitions-api","stack":"Error: User with this email already exists\n    at createUser (file:///D:/WebD%20Projects/Projects/acquisitions/src/services/auth.service.js:34:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async signup (file:///D:/WebD%20Projects/Projects/acquisitions/src/controllers/auth.controller.js:21:18)"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:19:24:36 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 409 31 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:19:24:44 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 91 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"error","message":"Error creating the user: Error: User with this email already exists","service":"acquisitions-api"}
+{"level":"error","message":"Signup error User with this email already exists","service":"acquisitions-api","stack":"Error: User with this email already exists\n    at createUser (file:///D:/WebD%20Projects/Projects/acquisitions/src/services/auth.service.js:34:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async signup (file:///D:/WebD%20Projects/Projects/acquisitions/src/controllers/auth.controller.js:21:18)"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:19:24:49 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 409 31 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"User af@gmail.com created successfully","service":"acquisitions-api"}
+{"level":"info","message":"User registered successfully: af@gmail.com","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:19:24:53 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 95 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"User asf@gmail.com created successfully","service":"acquisitions-api"}
+{"level":"info","message":"User registered successfully: asf@gmail.com","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:19:25:00 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 96 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"error","message":"Error creating the user: Error: User with this email already exists","service":"acquisitions-api"}
+{"level":"error","message":"Signup error User with this email already exists","service":"acquisitions-api","stack":"Error: User with this email already exists\n    at createUser (file:///D:/WebD%20Projects/Projects/acquisitions/src/services/auth.service.js:34:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async signup (file:///D:/WebD%20Projects/Projects/acquisitions/src/controllers/auth.controller.js:21:18)"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:19:26:58 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 409 31 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"User asfss@gmail.com created successfully","service":"acquisitions-api"}
+{"level":"info","message":"User registered successfully: asfss@gmail.com","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [03/Sep/2026:19:27:09 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 98 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
