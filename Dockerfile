@@ -37,13 +37,6 @@ RUN npm ci && npm cache clean --force
 USER nodejs
 CMD ["npm", "run", "dev"]
 
-# Migration image with Drizzle Kit available.
-FROM base AS migration
-USER root
-RUN npm ci && npm cache clean --force
-USER nodejs
-CMD ["npm", "run", "db:migrate"]
-
 # Production stage
 FROM base AS production
 CMD ["npm", "start"]

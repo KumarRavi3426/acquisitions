@@ -1,7 +1,12 @@
+version: '3.8'
+
 services:
   # Node.js application for production
   app:
-    image: ${IMAGE_REPOSITORY:?Set IMAGE_REPOSITORY to your Docker Hub image}:${IMAGE_TAG:-latest}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
     container_name: acquisitions-app-prod
     ports:
       - '127.0.0.1:${PORT:-3000}:3000'
@@ -31,14 +36,6 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
-    networks:
-      - acquisitions-prod
-
-  # One-shot database migration runner
-  migration:
-    image: ${IMAGE_REPOSITORY:?Set IMAGE_REPOSITORY to your Docker Hub image}:${MIGRATION_IMAGE_TAG:-migration-latest}
-    env_file:
-      - .env.production
     networks:
       - acquisitions-prod
 

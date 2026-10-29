@@ -3,12 +3,6 @@
 # Production deployment script for Acquisition App
 # This script starts the application in production mode with Neon Cloud Database
 
-set -e
-
-SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-PROJECT_ROOT=$(dirname "$SCRIPT_DIR")
-cd "$PROJECT_ROOT"
-
 echo "🚀 Starting Acquisition App in Production Mode"
 echo "==============================================="
 
@@ -26,25 +20,17 @@ if ! docker info >/dev/null 2>&1; then
     exit 1
 fi
 
-echo "📦 Pulling production containers..."
+echo "📦 Building and starting production container..."
 echo "   - Using Neon Cloud Database (no local proxy)"
-echo "   - Pulling application and migration images from Docker Hub"
+echo "   - Running in optimized production mode"
 echo ""
 
-compose() {
-    docker compose --env-file .env.production -f docker-compose.prod.yml "$@"
-}
-
-# Pull the immutable application and migration images before changing the database.
-compose pull
+# Start production environment
+docker compose -f docker-compose.prod.yml up --build -d
 
 # Run migrations with Drizzle
 echo "📜 Applying latest schema with Drizzle..."
-compose run --rm migration
-
-# Start production environment after migrations complete.
-echo "🚀 Starting production container..."
-compose up -d
+docker compose -f docker-compose.prod.yml run --rm app npm run db:migrate
 
 echo ""
 echo "🎉 Production environment started!"
@@ -53,4 +39,4 @@ echo "   Logs: docker logs acquisitions-app-prod"
 echo ""
 echo "Useful commands:"
 echo "   View logs: docker logs -f acquisitions-app-prod"
-echo "   Stop app: docker compose --env-file .env.production -f docker-compose.prod.yml down"
+echo "   Stop app: docker compose -f docker-compose.prod.yml down"
