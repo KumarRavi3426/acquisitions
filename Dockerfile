@@ -1,7 +1,7 @@
 # Multi-stage Dockerfile for Node.js acquisitions application
 
 # Base image with Node.js
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
 
 # Set working directory
 WORKDIR /app
@@ -10,7 +10,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --only=production && npm cache clean --force
+RUN npm ci --omit=dev && npm cache clean --force
 
 # Copy source code
 COPY . .
@@ -36,6 +36,13 @@ USER root
 RUN npm ci && npm cache clean --force
 USER nodejs
 CMD ["npm", "run", "dev"]
+
+# Migration image with Drizzle Kit available.
+FROM base AS migration
+USER root
+RUN npm ci && npm cache clean --force
+USER nodejs
+CMD ["npm", "run", "db:migrate"]
 
 # Production stage
 FROM base AS production

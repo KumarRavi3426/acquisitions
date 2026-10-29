@@ -3,6 +3,12 @@
 # Development startup script for Acquisition App with Neon Local
 # This script starts the application in development mode with Neon Local
 
+set -e
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+PROJECT_ROOT=$(dirname "$SCRIPT_DIR")
+cd "$PROJECT_ROOT"
+
 echo "🚀 Starting Acquisition App in Development Mode"
 echo "================================================"
 
