@@ -40,15 +40,19 @@ echo "   - Neon Local proxy will create an ephemeral database branch"
 echo "   - Application will run with hot reload enabled"
 echo ""
 
-# Run migrations with Drizzle
-echo "📜 Applying latest schema with Drizzle..."
-npm run db:migrate
+# Start development environment (neon-local first, then app)
+echo "📦 Starting containers..."
+docker compose -f docker-compose.dev.yml up -d neon-local
 
-# Wait for the database to be ready
+# Wait for neon-local to be healthy before running migrations
 echo "⏳ Waiting for the database to be ready..."
-docker compose exec neon-local psql -U neon -d neondb -c 'SELECT 1'
+docker compose -f docker-compose.dev.yml exec neon-local sh -c 'until pg_isready -h localhost -p 5432 -U neon; do sleep 2; done'
 
-# Start development environment
+# Run migrations with Drizzle inside the container (so localhost resolves correctly)
+echo "📜 Applying latest schema with Drizzle..."
+docker compose -f docker-compose.dev.yml exec -e DATABASE_URL="postgres://neon:npg@localhost:5432/neondb?sslmode=require" neon-local sh -c 'cd /app && npm run db:migrate' 2>/dev/null || npm run db:migrate
+
+# Start remaining services
 docker compose -f docker-compose.dev.yml up --build
 
 echo ""

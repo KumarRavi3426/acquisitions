@@ -3,6 +3,12 @@
 # Production deployment script for Acquisition App
 # This script starts the application in production mode with Neon Cloud Database
 
+set -e
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+PROJECT_ROOT=$(dirname "$SCRIPT_DIR")
+cd "$PROJECT_ROOT"
+
 echo "🚀 Starting Acquisition App in Production Mode"
 echo "==============================================="
 
@@ -28,9 +34,11 @@ echo ""
 # Start production environment
 docker compose -f docker-compose.prod.yml up --build -d
 
-# Run migrations with Drizzle
+# Run migrations with Drizzle on the host (drizzle-kit is a devDependency,
+# so it is not available inside the production image built with --omit=dev)
 echo "📜 Applying latest schema with Drizzle..."
-docker compose -f docker-compose.prod.yml run --rm app npm run db:migrate
+export $(grep -v '^#' .env.production | xargs)
+npx drizzle-kit migrate
 
 echo ""
 echo "🎉 Production environment started!"
