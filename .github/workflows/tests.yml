@@ -36,7 +36,7 @@ jobs:
         env:
           NODE_ENV: test
           NODE_OPTIONS: --experimental-vm-modules
-          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL || 'postgresql://test:test@localhost:5432/test_acquisitions' }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://test:test@localhost:5432/test_acquisitions' }}
           JWT_SECRET: test-secret-for-ci
           LOG_LEVEL: error
 
